@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "a",
+  "navigationBarBackgroundColor": "#00d0cc",
+  "usingComponents": {
+    "i-button": "../../../static/iview/dist/button/index"
+  }
+}
