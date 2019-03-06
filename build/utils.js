@@ -38,9 +38,16 @@ exports.cssLoaders = function (options) {
       rpxUnit: 0.5
     }
   }
-
+  var sassResourceLoader = {
+    loader: 'less-loader',
+    options: {
+      resources: [
+        path.resolve(__dirname, '../src/styles/index.less'),
+      ]
+    }
+  }
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders (loader, loaderOptions, anotherLoader) {
     var loaders = [cssLoader, px2rpxLoader, postcssLoader]
     if (loader) {
       loaders.push({
@@ -50,7 +57,7 @@ exports.cssLoaders = function (options) {
         })
       })
     }
-
+    if (!!anotherLoader) loaders.push(anotherLoader)
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
@@ -68,7 +75,7 @@ exports.cssLoaders = function (options) {
     css: generateLoaders(),
     wxss: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
+    less: generateLoaders('less',{},sassResourceLoader),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),

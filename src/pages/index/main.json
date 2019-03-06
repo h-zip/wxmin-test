@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "查看启动日志",
-  "navigationBarBackgroundColor": "#00d0cc",
-  "usingComponents": {
-    "i-button": "../../../static/iview/dist/button/index"
-  }
-}

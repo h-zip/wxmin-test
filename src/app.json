@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/index/main",
-    "pages/donate/main",
-    "pages/requirement/main",
-    "pages/partner/main",
-    "pages/member/main"
+    "pages/index/home/main",
+    "pages/donate/home/main",
+    "pages/requirement/home/main",
+    "pages/partner/home/main",
+    "pages/member/home/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,27 +20,27 @@
 
     "list": [{
       "text": "首页",
-      "pagePath": "pages/index/main",
+      "pagePath": "pages/index/home/main",
       "iconPath": "static/tabs/home.png",
       "selectedIconPath": "static/tabs/home-active.png"
     }, {
       "text": "我要捐",
-      "pagePath": "pages/donate/main",
+      "pagePath": "pages/donate/home/main",
       "iconPath": "static/tabs/orders.png",
       "selectedIconPath": "static/tabs/orders-active.png"
     }, {
       "text": "申领物资",
-      "pagePath": "pages/requirement/main",
+      "pagePath": "pages/requirement/home/main",
       "iconPath": "static/tabs/orders.png",
       "selectedIconPath": "static/tabs/orders-active.png"
     }, {
       "text": "合作伙伴",
-      "pagePath": "pages/partner/main",
+      "pagePath": "pages/partner/home/main",
       "iconPath": "static/tabs/orders.png",
       "selectedIconPath": "static/tabs/orders-active.png"
     }, {
       "text": "个人中心",
-      "pagePath": "pages/member/main",
+      "pagePath": "pages/member/home/main",
       "iconPath": "static/tabs/orders.png",
       "selectedIconPath": "static/tabs/orders-active.png"
     }],

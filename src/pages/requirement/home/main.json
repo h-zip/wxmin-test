@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "申领物资",
+  "navigationBarBackgroundColor": "#00d0cc",
+  "usingComponents": {
+    "i-button": "../../../../static/iview/dist/button/index"
+  }
+}
