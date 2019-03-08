@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "合作伙伴",
-  "navigationBarBackgroundColor": "#00d0cc",
   "usingComponents": {
-    "i-button": "../../../../static/iview/dist/button/index"
+    "vant-button": "../../../../static/vant/dist/button/index"
   }
 }

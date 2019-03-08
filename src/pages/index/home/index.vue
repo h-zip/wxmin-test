@@ -1,7 +1,7 @@
 <template>
   <div>
     234
-    <i-button @click="clickHandle" i-class="b" type="primary">默认按钮</i-button>
+    <vant-button @click="clickHandle" custom-class="b" type="primary">默认按钮</vant-button>
     <card :text="1233"></card>
   </div>
 </template>

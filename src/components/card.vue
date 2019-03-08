@@ -3,7 +3,7 @@
     <p class="card">
       {{text}}
     </p>
-    <i-button>默认2按钮</i-button>
+    <van-button>默认2按钮</van-button>
   </div>
 </template>
 

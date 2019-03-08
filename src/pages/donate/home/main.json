@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "我要捐",
-  "navigationBarBackgroundColor": "#00d0cc",
   "usingComponents": {
-    "i-button": "../../../../static/iview/dist/button/index"
+    "i-button": "../../../../static/vant/dist/button/index"
   }
 }

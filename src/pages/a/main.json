@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "a",
-  "navigationBarBackgroundColor": "#00d0cc",
   "usingComponents": {
-    "i-button": "../../../iview/dist/button/index"
+    "vant-button": "../../../vant/dist/button/index"
   }
 }

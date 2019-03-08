@@ -1,7 +1,13 @@
 {
   "navigationBarTitleText": "申领物资",
-  "navigationBarBackgroundColor": "#00d0cc",
   "usingComponents": {
-    "i-button": "../../../../static/iview/dist/button/index"
+    "vant-row": "../../../../static/vant/dist/row/index",
+    "vant-col": "../../../../static/vant/dist/col/index",
+    "van-field": "../../../../static/vant/dist/field/index",
+    "vant-button": "../../../../static/vant/dist/button/index",
+    "van-radio": "../../../../static/vant/dist/radio/index",
+    "van-radio-group": "../../../../static/vant/dist/radio-group/index",
+    "van-icon": "../../../../static/vant/dist/icon/index",
+    "van-checkbox": "../../../../static/vant/dist/checkbox/index"
   }
 }
