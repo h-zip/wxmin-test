@@ -3,13 +3,13 @@
     "pages/index/home/main",
     "pages/donate/home/main",
     "pages/requirement/home/main",
+    "pages/requirement/detail/main",
     "pages/partner/home/main",
     "pages/member/home/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#5abcb2",
-    "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

@@ -1,105 +1,34 @@
 <template>
-  <div style="background-color: #7ecbc3;min-height: 100vh;">
+  <div class="container">
     <img mode="widthFix" src="../../../../static/images/bg.png" style="width: 100%"/>
     <img mode="widthFix" src="../../../../static/images/logo.png" style="display: block;width: 50%;margin: auto;"/>
-    <div class="area">
-      <vant-row custom-class="row">
-        <vant-col span="6" custom-class="col col1">
-          联系人
-        </vant-col>
-        <vant-col span="18" custom-class="col">
-          <van-field :value="value1" placeholder="请输入联系人" @change="change1" input-class="i1" custom-style="padding:0px 15px;height:100rpx;line-height:100rpx;" ></van-field>
-        </vant-col>
-      </vant-row>
-    </div>
-    <div class="area">
-      <vant-row custom-class="row">
-        <vant-col span="6" custom-class="col col1">
-          手机号
-        </vant-col>
-        <vant-col span="18" custom-class="col">
-          <van-field :value="value2" placeholder="请输入手机号" @change="change2" input-class="i1" custom-style="padding:0px 15px;height:100rpx;line-height:100rpx;"></van-field>
-        </vant-col>
-      </vant-row>
-    </div>
-    <div class="area">
-      <vant-row custom-class="row">
-        <vant-col span="6" custom-class="col col1">
-          区域
-        </vant-col>
-        <vant-col span="18" custom-class="col">
-          <picker
-            mode="region"
-            @change="bindRegionChange"
-            :value="region">
-            <div style="padding-left: 30rpx;color: #495060;">{{ regionText }}</div>
-          </picker>
-        </vant-col>
-      </vant-row>
-    </div>
-    <div class="area">
-      <vant-row custom-class="row">
-        <vant-col span="6" custom-class="col col1">
-          需求类型
-        </vant-col>
-        <van-radio-group :value="requireType" @change="requireChange" checked-color="#00d0cc" custom-class="col">
-          <vant-col span="5" offset="1" custom-class="col">
-            <van-radio name="0" checked-color="#00a392" custom-class="col" label-class="radio-label">个人</van-radio>
-          </vant-col>
-          <vant-col span="1" offset="0" custom-class="col">
-            <van-icon size="40rpx" color="#0099C9" custom-class="iconfont icon-tip"/>
-          </vant-col>
-          <vant-col span="5" offset="1" custom-class="col">
-            <van-radio name="1" checked-color="#00a392" custom-class="col" label-class="radio-label">集体</van-radio>
-          </vant-col>
-          <vant-col span="1" offset="0" custom-class="col">
-            <van-icon size="40rpx" color="#00a392" custom-class="iconfont icon-tip" />
-          </vant-col>
-        </van-radio-group>
-      </vant-row>
-    </div>
-    <div class="area">
-      <vant-row custom-class="row">
-        <vant-col span="6" custom-class="col col1">
-          捐赠类型
-        </vant-col>
-        <van-radio-group :value="donateType" @change="donateChange" checked-color="#00d0cc" custom-class="col">
-          <vant-col span="5" offset="1" custom-class="col">
-            <van-radio name="0" checked-color="#00a392" custom-class="col" label-class="radio-label">衣物</van-radio>
-          </vant-col>
-
-          <vant-col span="5" offset="1" custom-class="col">
-            <van-radio name="1" checked-color="#00a392" custom-class="col" label-class="radio-label">物品</van-radio>
-          </vant-col>
-
-        </van-radio-group>
-      </vant-row>
-    </div>
-    <div class="area" v-if="requireType === '1'">
-      <vant-row custom-class="row">
-        <vant-col span="6" custom-class="col col1">
-          邮箱地址
-        </vant-col>
-        <vant-col span="18" custom-class="col">
-          <van-field :value="value3" placeholder="请输入邮箱地址" @change="change3" input-class="i1" custom-style="padding:0px 15px; height:100rpx;line-height:100rpx;"></van-field>
-        </vant-col>
-      </vant-row>
-    </div>
-    <div class="area">
-      <vant-row custom-class="">
-        <vant-col span="12" custom-class="col2">
-          <van-checkbox :value="agree" @change="agreeChange" shape="square" checked-color="#00a392" wrap-class="checkbox-icon" label-class="checkbox-label">阅读并同意需求方</van-checkbox>
-        </vant-col>
-        <vant-col span="12" custom-class="col3">
-          <div style="color: #FFFFFF;font-size: 32rpx;padding-top: 4rpx;">《需知协议》</div>
-        </vant-col>
-      </vant-row>
+    <input-box-a title="联系人" placeholder="请输入联系人" :value="value1" @on-change="change1"></input-box-a>
+    <input-box-a title="手机号" placeholder="请输入手机号" :value="value2" @on-change="change2"></input-box-a>
+    <input-box-b title="区域" placeholder="请输入区域" :value="region" @on-change="bindRegionChange"></input-box-b>
+    <radio-box-a title="需求类型" :value="requireType" :radios="radios1" check-color="#00a392" :icon-colors="iconColors" @on-change="requireChange" @on-icon="requireDetail"></radio-box-a>
+    <radio-box-b title="捐赠类型" :value="donateType" :radios="radios2" check-color="#00a392" @on-change="donateChange"></radio-box-b>
+    <input-box-a v-if="requireType === '1'" title="邮箱地址" placeholder="请输入邮箱地址" :value="value3" @on-change="change3"></input-box-a>
+    <check-box-a label1="阅读并同意需求方" label2="《需知协议》" :value="agree" check-color="#00a392" @on-change="agreeChange" @on-click="needknownClick"></check-box-a>
+    <div class="area" style="padding-bottom: 60rpx">
+      <van-button size="large" custom-class="btn" @click="btnClick">下一步完善需求</van-button>
     </div>
   </div>
 </template>
 
 <script>
+  import inputBoxA from '@/components/input-box-a'
+  import inputBoxB from '@/components/input-box-b'
+  import radioBoxA from '@/components/radio-box-a'
+  import radioBoxB from '@/components/radio-box-b'
+  import checkBoxA from '@/components/checkbox-a'
   export default {
+    components: {
+      'input-box-a': inputBoxA,
+      'input-box-b': inputBoxB,
+      'radio-box-a': radioBoxA,
+      'radio-box-b': radioBoxB,
+      'check-box-a': checkBoxA
+    },
     props: {
     },
     computed: {
@@ -116,22 +45,35 @@
         requireType: '0',
         donateType: '0',
         value3: 'xxxx@163.com',
-        agree: false
+        agree: false,
+        radios1: [
+          '个人',
+          '集体'
+        ],
+        radios2: [
+          '衣物',
+          '物品'
+        ],
+        iconColors: [
+          '#0099C9',
+          '#00a392'
+
+        ]
 
       }
     },
     watch: {},
     methods: {
       change1 (v) {
-        this.value1 = v.mp.detail
+        this.value1 = v.mp.detail.value
         console.log(this.value1)
       },
       change2 (v) {
-        this.value2 = v.mp.detail
+        this.value2 = v.mp.detail.value
         console.log(this.value2)
       },
       change3 (v) {
-        this.value3 = v.mp.detail
+        this.value3 = v.mp.detail.value
         console.log(this.value3)
       },
       bindRegionChange (v) {
@@ -142,6 +84,8 @@
         this.requireType = v.mp.detail
         console.log(v)
       },
+      requireDetail () {
+      },
       donateChange (v) {
         this.donateType = v.mp.detail
         console.log(v)
@@ -149,10 +93,16 @@
       agreeChange (v) {
         this.agree = v.mp.detail
         console.log(v)
+      },
+      needknownClick () {
+
+      },
+      btnClick () {
+        wx.router.push(wx.router.routes.requirement.detail)
       }
     },
     onLoad: function () {
-      // console.log(wx)
+      // console.log(wx.router)
     },
     onShow: function () {
     }
@@ -161,48 +111,19 @@
 
 <style scoped lang="less">
   @import "../../../styles/index";
-  .area{
-    padding: 16rpx 40rpx;
-  }
-  div{
-    /deep/ .i1 {
-      font-size: 32rpx;
-      height: 100rpx;
+  .container{
+    background-color: @color-green-0;
+    min-height: 100vh;
+    .area{
+      padding: 16rpx 40rpx;
     }
-    /deep/ .row {
-      height: 100rpx;
-      border: #dedede 1px solid;
-      border-radius: 5px;
-      background-color: #FFFFFF;
-      font-size: 32rpx;
-      color: #999;
-    }
-    /deep/ .col {
-      height: 100%;
-      line-height: 100rpx;
-    }
-    /deep/ .col1 {
-      background-color: #f9f9f9;
-      text-align: center;
-    }
-    /deep/ .col2 {
-      height: 100%;
-      line-height: 60rpx;
-    }
-    /deep/ .col3 {
-      height: 100%;
-      line-height: 60rpx;
-      margin-left: -20rpx;
-    }
-    /deep/ .checkbox-label {
-      font-size: 32rpx;
-      color: #FFFFFF;
-    }
-    /deep/ .checkbox-icon {
-      background: #FFFFFF;
-    }
-    /deep/ .radio-label {
-      font-size: 32rpx;
+    /deep/ .btn {
+      background: @color-green-1;
+      border-width: 0;
+      color: @color-white-0;
+      height: 80rpx;
+      line-height: 76rpx;
+      font-size: @font-m;
     }
   }
 </style>

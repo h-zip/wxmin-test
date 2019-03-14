@@ -8,6 +8,9 @@
     "van-radio": "../../../../static/vant/dist/radio/index",
     "van-radio-group": "../../../../static/vant/dist/radio-group/index",
     "van-icon": "../../../../static/vant/dist/icon/index",
-    "van-checkbox": "../../../../static/vant/dist/checkbox/index"
+    "van-checkbox": "../../../../static/vant/dist/checkbox/index",
+    "van-cell-group": "../../../../static/vant/dist/cell-group/index",
+    "van-input-number": "../../../../static/vant/dist/input-number/index",
+    "van-popup": "../../../../static/vant/dist/popup/index"
   }
 }

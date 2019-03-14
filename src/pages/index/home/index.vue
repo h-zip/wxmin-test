@@ -8,7 +8,6 @@
 
 <script>
 import api from '@/service'
-import card from '@/components/card'
 // import { formatTime } from '@/utils/index'
 export default {
   data () {
@@ -22,7 +21,6 @@ export default {
   },
 
   components: {
-    card
   },
 
   methods: {
@@ -49,7 +47,6 @@ export default {
   @import "../../../styles/index";
   div{
     /deep/ .b {
-      background: @primary-color !important;
     }
   }
 </style>
