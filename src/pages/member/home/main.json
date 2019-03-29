@@ -1,6 +1,10 @@
 {
   "navigationBarTitleText": "个人中心",
   "usingComponents": {
-    "vant-button": "../../../../static/vant/dist/button/index"
+    "van-row": "../../../../static/vant/dist/row/index",
+    "van-col": "../../../../static/vant/dist/col/index",
+    "van-cell-group": "../../../../static/vant/dist/cell-group/index",
+    "van-cell": "../../../../static/vant/dist/cell/index",
+    "van-icon": "../../../../static/vant/dist/icon/index"
   }
 }

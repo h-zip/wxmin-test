@@ -1,6 +1,9 @@
 const routes = {
+  login: {
+    home: '/pages/login/home/main'
+  },
   donate: {
-    home: '/pages/home/home/main'
+    home: '/pages/donate/home/main'
   },
   index: {
     home: '/pages/index/home/main'

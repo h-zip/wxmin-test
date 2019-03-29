@@ -1,28 +1,17 @@
 <template>
-  <div>
-    234
-    <vant-button @click="clickHandle" custom-class="b" type="primary">默认按钮</vant-button>
-    <card :text="1233"></card>
+  <div class="container">
   </div>
 </template>
 
 <script>
 import api from '@/service'
-// import { formatTime } from '@/utils/index'
 export default {
   data () {
     return {
-      motto: 'Hello miniprograme',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
     }
   },
-
   components: {
   },
-
   methods: {
     clickHandle (ev) {
       console.log('clickHandle:', ev)
@@ -37,6 +26,9 @@ export default {
         .catch()
     }
   },
+  mounted () {
+    // wx.router.redirect(wx.router.routes.login.home)
+  },
   created () {
     // let app = getApp()
   }
@@ -45,8 +37,9 @@ export default {
 
 <style scoped lang="less">
   @import "../../../styles/index";
-  div{
-    /deep/ .b {
-    }
+  .container{
+    background-color: @color-white-1;
+    min-height: 100vh;
+    width: 100%;
   }
 </style>
