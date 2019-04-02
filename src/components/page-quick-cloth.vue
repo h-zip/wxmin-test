@@ -1,29 +1,22 @@
 <template>
   <div class="container">
-    <select-btns :titles="titles" :selectedIndex="typeIndex" selectedColor="#00a392" unSelectedColor="#FFFFFF" bgColor="#7ecbc3"
-                 @on-selected="typeSelected"></select-btns>
-    <page-quick-cloth />
+    <select-down-cloth :filterIndex="filterIndex" @on-filter="filterSelected"></select-down-cloth>
   </div>
 </template>
 
 <script>
   // import _ from 'lodash'
-  import selectBtns from '@/components/select-btns'
-  import pageQuickCloth from '@/components/page-quick-cloth'
+  import selectDownCloth from '@/components/select-down-cloth'
   export default {
     components: {
-      'select-btns': selectBtns,
-      'page-quick-cloth': pageQuickCloth
+      'select-down-cloth': selectDownCloth
     },
     props: {
     },
     computed: {},
     data: function () {
       return {
-        titles: ['捐衣', '快捷捐衣', '捐物', '快捷捐物'],
-        filters: ['区域', '性别', '身高', '季节', '状态'],
-        typeIndex: 0,
-        filterIndex: -1,
+        filterIndex: 0,
         optIndex: -1,
         opts: [
           '全部', '0', '1', '2', '3', '4'
@@ -32,10 +25,8 @@
     },
     watch: {},
     methods: {
-      typeSelected: function (index) {
-        this.typeIndex = index
-      },
       filterSelected: function (index) {
+        console.log(index)
         this.filterIndex = index
       },
       optSelected: function (index) {
@@ -56,10 +47,9 @@
 </script>
 
 <style scoped lang="less">
-  @import "../../../styles/index";
+  @import "../styles/index";
   .container{
     background-color: @color-white-1;
-    min-height: 100vh;
     width: 100%;
   }
 </style>
