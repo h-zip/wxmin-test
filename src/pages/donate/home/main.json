@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "我要捐",
   "usingComponents": {
-    "i-button": "../../../../static/vant/dist/button/index"
+    "van-button": "../../../../static/vant/dist/button/index",
+    "van-icon": "../../../../static/vant/dist/icon/index"
   }
 }

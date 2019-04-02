@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <header-box :header-src="headerSrc" :bg="bg" :name="name"></header-box>
-    <flex-row :items="items"></flex-row>
+    <flex-row-a :items="items"></flex-row-a>
     <van-cell-group>
       <van-cell :title="cell.title" :is-link="!cell.notLink" v-for="(cell, index) in cells" :key="index" :url="cell.url" title-class="cell-title">
         <van-icon slot="icon" size="32rpx" :color="cell.color" :custom-class="cell.icon"  />
@@ -12,12 +12,12 @@
 
 <script>
   import headerBox from '@/components/header-box'
-  import flexRow from '@/components/flex-row'
+  import flexRowA from '@/components/flex-row-a'
   export default {
     name: 'index',
     components: {
       'header-box': headerBox,
-      'flex-row': flexRow
+      'flex-row-a': flexRowA
     },
     data: function () {
       return {

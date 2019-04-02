@@ -2,10 +2,15 @@
   <div class="container">
     <div class="btn-box">
       <div :class="btnClasses[index]"
-           :style="index !== selectedIndex ? {width: 100 / titles.length + '%',color: unSelectedColor} : {width: 100 / titles.length + '%',color: selectedColor}"
-           v-for="(item, index) in titles" :key="index" @click="onSelected(index, item)">
+           :style="index !== filterIndex ? {width: 100 / titles.length + '%',color: unSelectedColor} : {width: 100 / titles.length + '%',color: selectedColor}"
+           v-for="(item, index) in titles" :key="index" @click="onFilter(index, item)">
         {{ titles[index] }}
+        <van-icon :custom-class="index !== filterIndex ? 'iconfont icon-arrowdown' : 'iconfont icon-arrowup'" />
       </div>
+    </div>
+    <div class="opt-box" :style="{color: unSelectedColor}" v-if="filterIndex !== -1"
+         v-for="(item, index) in opts" :key="index" @click="onOpt(index, item)">
+      {{ item }}
     </div>
   </div>
 </template>
@@ -17,11 +22,12 @@
       'titles',
       'selectedColor',
       'unSelectedColor',
-      'selectedIndex',
-      'opts'
+      'filterIndex',
+      'opts',
+      'optIndex'
     ],
     watch: {
-      selectedIndex: function (v, o) {
+      filterIndex: function (v, o) {
         this.btnClasses[o] = 'btn'
         this.btnClasses[v] = 'btn btn_selected'
       }
@@ -36,7 +42,7 @@
     mounted: function () {
       let a = []
       this.titles.forEach((v, i) => {
-        if (i === this.selectedIndex) {
+        if (i === this.filterIndex) {
           a.push('btn btn_selected')
         } else {
           a.push('btn')
@@ -45,8 +51,11 @@
       this.btnClasses = a
     },
     methods: {
-      onSelected: function (index, item) {
-        this.$emit('on-selected', index)
+      onFilter: function (index, item) {
+        this.$emit('on-filter', index)
+      },
+      onOpt: function (index, item) {
+        this.$emit('on-opt', index)
       }
     }
   }
@@ -75,6 +84,13 @@
         &_selected {
         }
       }
+    }
+    .opt-box {
+      width: 100%;
+      font-size: @font-m;
+      padding: 10rpx  0rpx  10rpx  30rpx;
+      background: @color-white-0;
+      border-bottom: 2rpx solid #DFDFDF;
     }
   }
 
