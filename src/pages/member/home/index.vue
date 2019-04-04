@@ -21,7 +21,7 @@
     },
     data: function () {
       return {
-        headerSrc: '/../../../../static/images/default_avatar.jpg',
+        headerSrc: '/static/images/default_avatar.jpg',
         bg: '-webkit-gradient(linear, left top, left bottom, color-stop(0, #adebcb), color-stop(1, #5fd9cb))',
         name: '1233333',
         items: [

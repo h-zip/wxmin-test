@@ -60,37 +60,37 @@ export default {
       navis: [
         {
           title: '我要捐衣',
-          icon: '/../../../../static/images/nav_cloth.png'
+          icon: '/static/images/nav_cloth.png'
         },
         {
           title: '我要捐物',
-          icon: '/../../../../static/images/nav_goods.png'
+          icon: '/static/images/nav_goods.png'
         },
         {
           title: '我要月捐',
-          icon: '/../../../../static/images/nav_heart.png'
+          icon: '/static/images/nav_heart.png'
         },
         {
           title: '申领物资',
-          icon: '/../../../../static/images/nav_req.png'
+          icon: '/static/images/nav_req.png'
         }
       ],
       cols: [
         {
           title: '合作',
-          icon: '/../../../../static/images/col_co.png'
+          icon: '/static/images/col_co.png'
         },
         {
           title: '志愿者',
-          icon: '/../../../../static/images/col_volt.png'
+          icon: '/static/images/col_volt.png'
         },
         {
           title: '客服',
-          icon: '/../../../../static/images/col_service.png'
+          icon: '/static/images/col_service.png'
         },
         {
           title: '我的',
-          icon: '/../../../../static/images/col_mine.png'
+          icon: '/static/images/col_mine.png'
         }
       ],
       header: {
@@ -98,9 +98,9 @@ export default {
         sub: '了解我们 >>'
       },
       imgs: [
-        '/../../../../static/images/us.png',
-        '/../../../../static/images/als.png',
-        '/../../../../static/images/csc.png'
+        '/static/images/us.png',
+        '/static/images/als.png',
+        '/static/images/csc.png'
       ]
     }
   },

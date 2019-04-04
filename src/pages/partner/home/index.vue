@@ -13,7 +13,7 @@
     data: function () {
       return {
         title: '宝贝爱蓝天合作伙伴',
-        src: '/../../../../static/images/partner.png'
+        src: '/static/images/partner.png'
       }
     }
   }

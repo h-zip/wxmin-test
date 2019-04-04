@@ -2,7 +2,10 @@
   <div class="container">
     <select-btns :titles="titles" :selectedIndex="typeIndex" selectedColor="#00a392" unSelectedColor="#FFFFFF" bgColor="#7ecbc3"
                  @on-selected="typeSelected"></select-btns>
-    <page-quick-cloth />
+    <page-cloth v-if="typeIndex === 0" />
+    <page-quick-cloth v-if="typeIndex === 1" />
+    <page-goods v-if="typeIndex === 2" />
+    <page-quick-goods v-if="typeIndex === 3"/>
   </div>
 </template>
 
@@ -10,10 +13,16 @@
   // import _ from 'lodash'
   import selectBtns from '@/components/select-btns'
   import pageQuickCloth from '@/components/page-quick-cloth'
+  import pageQuickGoods from '@/components/page-quick-goods'
+  import pageCloth from '@/components/page-cloth'
+  import pageGoods from '@/components/page-goods'
   export default {
     components: {
       'select-btns': selectBtns,
-      'page-quick-cloth': pageQuickCloth
+      'page-quick-cloth': pageQuickCloth,
+      'page-quick-goods': pageQuickGoods,
+      'page-cloth': pageCloth,
+      'page-goods': pageGoods
     },
     props: {
     },
@@ -21,26 +30,13 @@
     data: function () {
       return {
         titles: ['捐衣', '快捷捐衣', '捐物', '快捷捐物'],
-        filters: ['区域', '性别', '身高', '季节', '状态'],
-        typeIndex: 0,
-        filterIndex: -1,
-        optIndex: -1,
-        opts: [
-          '全部', '0', '1', '2', '3', '4'
-        ]
+        typeIndex: 0
       }
     },
     watch: {},
     methods: {
       typeSelected: function (index) {
         this.typeIndex = index
-      },
-      filterSelected: function (index) {
-        this.filterIndex = index
-      },
-      optSelected: function (index) {
-        this.optIndex = index
-        this.filterIndex = -1
       }
     },
     onLoad: function () {

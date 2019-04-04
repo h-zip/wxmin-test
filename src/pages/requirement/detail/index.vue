@@ -7,28 +7,9 @@
     <row-btn title="所需衣物" btn-title="添加衣物标签" @on-click="onDrawer"></row-btn>
     <item-card v-for="(item, index) in items" :key="index" :item="item" :index="index" @on-change="onCount"></item-card>
     <btn-two btn-title1="上一步" btn-title2="确认登记" @on-click1="onLast" @on-click2="onNext"></btn-two>
-    <van-popup
-      :show="tagShow"
-      position="right"
-      :overlay="true"
-      @close="onDrawer"
-      custom-class="pop"
-      @click-overlay="onDrawer"
-    >
-      <div>
-        <div class="pop-t">衣物</div>
-        <flex-item :items="items1"></flex-item>
-        <div class="pop-t">季节</div>
-        <flex-item :items="items2"></flex-item>
-        <div class="pop-t">身高</div>
-        <flex-item :items="items3"></flex-item>
-        <div class="pop-t">数量</div>
-        <div class="pop-c">
-          <van-input-number :value="popCount" :max="99" :min="1" @change="onPopCount"></van-input-number>
-        </div>
-        <btn-two btn-title1="取消" btn-title2="确认" @on-click1="onDrawer" @on-click2="onDrawer"></btn-two>
-      </div>
-    </van-popup>
+    <item-drawer :show="tagShow" :items1="items1" :items2="items2" :items3="items3" :pop-count="popCount"
+                 @on-drawer="onDrawer" @on-pop-count="onPopCount">
+    </item-drawer>
   </div>
 </template>
 
@@ -40,7 +21,7 @@
   import rowBtn from '@/components/row-btn'
   import btnTwo from '@/components/btn-two'
   import itemCard from '@/components/item-card'
-  import flexItem from '@/components/flex-item'
+  import itemDrawer from '@/components/item-drawer'
   export default {
     components: {
       'textarea-a': textareaA,
@@ -49,7 +30,7 @@
       'row-btn': rowBtn,
       'btn-two': btnTwo,
       'item-card': itemCard,
-      'flex-item': flexItem
+      'item-drawer': itemDrawer
     },
     props: {
     },
@@ -214,17 +195,5 @@
     background-color: @color-white-1;
     min-height: 100vh;
     width: 100%;
-    /deep/ .pop{
-      width: 85%;
-      min-height: 100%;
-    }
-    .pop-t{
-      font-size: @font-m + 4rpx;
-      padding: 10rpx 0 10rpx 40rpx;
-      background-color: @color-gray-1;
-    }
-    .pop-c{
-      padding: 40rpx 0 40rpx 40rpx;
-    }
   }
 </style>
