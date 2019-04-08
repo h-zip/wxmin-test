@@ -9,7 +9,12 @@ const routes = {
     home: '/pages/index/home/main'
   },
   member: {
-    home: '/pages/member/home/main'
+    home: '/pages/member/home/main',
+    track: {
+      home: '/pages/member/track/home/main',
+      summary: '/pages/member/track/summary/main',
+      map: '/pages/member/track/map/main'
+    }
   },
   partner: {
     home: '/pages/partner/home/main'
@@ -17,6 +22,9 @@ const routes = {
   requirement: {
     home: '/pages/requirement/home/main',
     detail: '/pages/requirement/detail/main'
+  },
+  point: {
+    rank: '/pages/point/rank/main'
   }
 }
 let push = function (route, args) {

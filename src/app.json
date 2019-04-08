@@ -6,7 +6,11 @@
     "pages/requirement/home/main",
     "pages/requirement/detail/main",
     "pages/partner/home/main",
-    "pages/member/home/main"
+    "pages/member/home/main",
+    "pages/member/track/home/main",
+    "pages/member/track/summary/main",
+    "pages/member/track/map/main",
+    "pages/point/rank/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

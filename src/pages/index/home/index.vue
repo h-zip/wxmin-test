@@ -18,8 +18,18 @@
       <flex-row-b :items="cols"></flex-row-b>
     </div>
     <line height="2rpx" space="40rpx" color="#dedede"></line>
+    <div class="swiper">
+      <swiper :items="swipers" :auto="true" :width="swiperStyle.width" :height="swiperStyle.height"></swiper>
+    </div>
     <div class="header">
-      <navi-header-a :titles="header"></navi-header-a>
+      <navi-header-a :titles="header1" @on-click="onNaviRank"></navi-header-a>
+    </div>
+    <div class="donater">
+      <cell-cloth-donater :cell="donater" :row="index" v-for="(donater, index) in donaters" :key="index"></cell-cloth-donater>
+    </div>
+    <line height="2rpx" space="40rpx" color="#dedede"></line>
+    <div class="header">
+      <navi-header-a :titles="header2"></navi-header-a>
     </div>
     <div class="imgs">
       <imgs-a :items="imgs"></imgs-a>
@@ -36,6 +46,7 @@ import flexRowB from '@/components/flex-row-b'
 import naviHeaderA from '@/components/navi-header-a'
 import imgsA from '@/components/imgs-a'
 import line from '@/components/line'
+import cellClothDonater from '@/components/cell-cloth-donater'
 export default {
   data () {
     return {
@@ -93,14 +104,32 @@ export default {
           icon: '/static/images/col_mine.png'
         }
       ],
-      header: {
+      header2: {
         main: '我们 & 资助伙伴',
         sub: '了解我们 >>'
       },
+      header1: {
+        main: '优秀捐衣人',
+        sub: '查看更多 >>'
+      },
+      donaters: [
+        {
+          name: 'zhangsan',
+          point: '1234'
+        },
+        {
+          name: 'lisi',
+          point: '939'
+        },
+        {
+          name: 'wangwu',
+          point: '455'
+        }
+      ],
       imgs: [
-        '/static/images/us.png',
-        '/static/images/als.png',
-        '/static/images/csc.png'
+        '/static/images/logo3.png',
+        '/static/images/logo1.png',
+        '/static/images/logo2.png'
       ]
     }
   },
@@ -111,7 +140,8 @@ export default {
     'flex-row-b': flexRowB,
     'navi-header-a': naviHeaderA,
     'imgs-a': imgsA,
-    'line': line
+    'line': line,
+    'cell-cloth-donater': cellClothDonater
   },
   methods: {
     clickHandle (ev) {
@@ -125,6 +155,9 @@ export default {
           console.log(res)
         })
         .catch()
+    },
+    onNaviRank () {
+      wx.router.push(wx.router.routes.point.rank)
     }
   },
   mounted () {

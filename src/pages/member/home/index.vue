@@ -46,7 +46,7 @@
           {
             icon: 'iconfont icon-zuji',
             title: '捐赠足迹',
-            url: '',
+            url: wx.router.routes.member.track.home,
             color: '#E8659B'
           },
           {

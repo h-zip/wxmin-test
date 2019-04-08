@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" @click="onClick">
     <div class="main">{{ titles.main }}</div>
     <div class="sub">{{ titles.sub }}</div>
   </div>
@@ -12,11 +12,8 @@
       'titles'
     ],
     methods: {
-      onClick1: function () {
-        this.$emit('on-click1')
-      },
-      onClick2: function () {
-        this.$emit('on-click2')
+      onClick: function () {
+        this.$emit('on-click')
       }
     }
   }
