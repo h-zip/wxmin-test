@@ -9,15 +9,15 @@
       @click-overlay="onDrawer"
     >
       <div>
-        <div v-for="(item, index) in items" :key="index">
-          <div class="pop-t">{{ item.title }}</div>
-          <flex-item :items="item.opts" :index="index" :selected-index="optIndexs[index]" @on-selected="onSelected"></flex-item>
-        </div>
-        <div v-if="needCount">
-          <div class="pop-t">数量</div>
-          <div class="pop-c">
-            <van-input-number :value="popCount" :max="99" :min="1" @change="onPopCount"></van-input-number>
-          </div>
+        <div class="pop-t">衣物</div>
+        <flex-item :items="items1"></flex-item>
+        <div class="pop-t">季节</div>
+        <flex-item :items="items2"></flex-item>
+        <div class="pop-t">身高</div>
+        <flex-item :items="items3"></flex-item>
+        <div class="pop-t">数量</div>
+        <div class="pop-c">
+          <van-input-number :value="popCount" :max="99" :min="1" @change="onPopCount"></van-input-number>
         </div>
         <btn-two btn-title1="取消" btn-title2="确认" @on-click1="onDrawer" @on-click2="onDrawer"></btn-two>
       </div>
@@ -36,17 +36,17 @@
     },
     props: [
       'show',
-      'items',
-      'popCount',
-      'needCount',
-      'optIndexs'
+      'items1',
+      'items2',
+      'items3',
+      'popCount'
     ],
     methods: {
       onDrawer: function () {
         this.$emit('on-drawer')
       },
-      onSelected: function (section, index) {
-        this.$emit('on-selected', section, index)
+      onClick1: function () {
+        console.log(11111)
       },
       onPopCount: function (e) {
         this.$emit('on-pop-count', e)

@@ -7,9 +7,8 @@
       <cell-quick-goods :cell="cell" :row="index" v-for="(cell, index) in goods" :key="index" @on-change="onCount"></cell-quick-goods>
     </div>
     <div class="btn" @click="onMatch">立即匹配</div>
-    <item-drawer :show="tagShow" :items1="items1" :items2="items2" :items3="items3" :pop-count="popCount"
-                 @on-drawer="onDrawer" @on-pop-count="onPopCount">
-    </item-drawer>
+    <item-drawer :show="tagShow" :items="items" @on-drawer="onDrawer" :opt-indexs="optIndexs" :pop-count="popCount"
+                 @on-selected="onDrawerSelected" :need-count="true" @on-pop-count="onPopCount"></item-drawer>
   </div>
 </template>
 
@@ -46,62 +45,41 @@
             donate: 5
           }
         ],
-        tagShow: false,
         popCount: 1,
-        items1: [
+        optIndexs: [-1, -1],
+        items: [
           {
-            code: '0',
-            name: '夏装'
+            title: '类别',
+            opts: [
+              {
+                code: '0',
+                name: '体育用品'
+              },
+              {
+                code: '1',
+                name: '文具'
+              }
+            ]
           },
           {
-            code: '1',
-            name: '东装'
-          },
-          {
-            code: '2',
-            name: '秋天装'
-          },
-          {
-            code: '3',
-            name: '早春装书'
+            title: '物品',
+            opts: [
+              {
+                code: '0',
+                name: '本子'
+              },
+              {
+                code: '1',
+                name: '铅笔'
+              },
+              {
+                code: '2',
+                name: '橡皮'
+              }
+            ]
           }
         ],
-        items2: [
-          {
-            code: '0',
-            name: '夏装'
-          },
-          {
-            code: '1',
-            name: '东装'
-          },
-          {
-            code: '2',
-            name: '秋天装'
-          },
-          {
-            code: '3',
-            name: '早春装书'
-          }
-        ],
-        items3: [
-          {
-            code: '0',
-            name: '夏装'
-          },
-          {
-            code: '1',
-            name: '东装'
-          },
-          {
-            code: '2',
-            name: '秋天装'
-          },
-          {
-            code: '3',
-            name: '早春装书'
-          }
-        ]
+        tagShow: false
       }
     },
     watch: {},
@@ -137,6 +115,12 @@
             self.popShow = !self.popShow
           }, 200)
         }
+      },
+      onDrawerSelected (section, index) {
+        let c = _.cloneDeep(this.optIndexs)
+        c[section] = index
+        this.optIndexs = c
+        console.log(this.optIndexs)
       }
     },
     onLoad: function () {

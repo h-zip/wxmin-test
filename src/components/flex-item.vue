@@ -10,7 +10,9 @@
   export default {
     name: 'textarea-a',
     props: [
-      'items'
+      'items',
+      'selectedIndex',
+      'index'
     ],
     computed: {
     },
@@ -32,7 +34,6 @@
     },
     data: function () {
       return {
-        selectedIndex: -1,
         classes: []
       }
     },
@@ -45,13 +46,13 @@
     },
     methods: {
       onSelected: function (index, item) {
-        this.selectedIndex = index
+        // this.selectedIndex = index
         // this.$emit('input', item)
-        this.$emit('onSelected', item)
+        this.$emit('on-selected', this.index, index)
       },
       configInitIndex: function (index) {
         this.selectedIndex = index
-        this.$emit('onSelected', this._items[index])
+        // this.$emit('onSelected', this._items[index])
         // this.$emit('input', this._items[index])
       }
     }
@@ -82,15 +83,18 @@
       /*40*4 + 2*6 /3*/
       font-size: @font-m;
       text-align: center;
-      border:2rpx solid #DFDFDF;
+      border:2rpx solid @color-gray-1;
+      background-color: @color-gray-1;
+      color: @color-black-1;
       margin-left: 40rpx;
       margin-top: 40rpx;
       padding: 10rpx 0;
       width: calc(~"(100% - 172rpx) / 3");
       &_selected {
-        color: @color-green-1;
-        background-image: url("http://bbalt.hanspro.cn/Content/weixin/images/bg_menuhover.png");
-        background-size: 100% 100%;
+        color: @color-white-0;
+        background-color: @color-green-1;
+        /*background-image: url("http://bbalt.hanspro.cn/Content/weixin/images/bg_menuhover.png");*/
+        /*background-size: 100% 100%;*/
         border:2rpx solid @color-green-1;
       }
     }

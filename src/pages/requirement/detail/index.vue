@@ -5,11 +5,10 @@
     <textarea-a title="需求描述" placeholder="请输入文字描述一下实际情况，使需求更加精准" :value="value3"@on-change="onDemandChange" :pop-show="popShow"></textarea-a>
     <img-select title="描述图片" :srcs="srcs" @choose-success="chooseImg" @on-delete="deleteImg"></img-select>
     <row-btn title="所需衣物" btn-title="添加衣物标签" @on-click="onDrawer"></row-btn>
-    <item-card v-for="(item, index) in items" :key="index" :item="item" :index="index" @on-change="onCount"></item-card>
+    <item-card v-for="(item, index) in items1" :key="index" :item="item" :index="index" @on-change="onCount"></item-card>
     <btn-two btn-title1="上一步" btn-title2="确认登记" @on-click1="onLast" @on-click2="onNext"></btn-two>
-    <item-drawer :show="tagShow" :items1="items1" :items2="items2" :items3="items3" :pop-count="popCount"
-                 @on-drawer="onDrawer" @on-pop-count="onPopCount">
-    </item-drawer>
+    <item-drawer :show="tagShow" :items="items2" @on-drawer="onDrawer" :opt-indexs="optIndexs" :pop-count="popCount"
+                 @on-selected="onDrawerSelected" :need-count="true" @on-pop-count="onPopCount"></item-drawer>
   </div>
 </template>
 
@@ -52,7 +51,7 @@
         tagShow: false,
         popShow: false,
         popCount: 1,
-        items: [
+        items1: [
           {
             a: '女',
             b: '夏装',
@@ -66,60 +65,39 @@
             d: 27
           }
         ],
-        items1: [
-          {
-            code: '0',
-            name: '夏装'
-          },
-          {
-            code: '1',
-            name: '东装'
-          },
-          {
-            code: '2',
-            name: '秋天装'
-          },
-          {
-            code: '3',
-            name: '早春装书'
-          }
-        ],
         items2: [
           {
-            code: '0',
-            name: '夏装'
+            title: '类别',
+            opts: [
+              {
+                code: '0',
+                name: '体育用品'
+              },
+              {
+                code: '1',
+                name: '文具'
+              }
+            ]
           },
           {
-            code: '1',
-            name: '东装'
-          },
-          {
-            code: '2',
-            name: '秋天装'
-          },
-          {
-            code: '3',
-            name: '早春装书'
+            title: '物品',
+            opts: [
+              {
+                code: '0',
+                name: '本子'
+              },
+              {
+                code: '1',
+                name: '铅笔'
+              },
+              {
+                code: '2',
+                name: '橡皮'
+              }
+            ]
           }
         ],
-        items3: [
-          {
-            code: '0',
-            name: '夏装'
-          },
-          {
-            code: '1',
-            name: '东装'
-          },
-          {
-            code: '2',
-            name: '秋天装'
-          },
-          {
-            code: '3',
-            name: '早春装书'
-          }
-        ]
+        optIndexs: [-1, -1]
       }
     },
     watch: {},
@@ -175,6 +153,12 @@
       },
       onPopCount (v) {
         this.popCount = v.mp.detail.value
+      },
+      onDrawerSelected (section, index) {
+        let c = _.cloneDeep(this.optIndexs)
+        c[section] = index
+        this.optIndexs = c
+        console.log(this.optIndexs)
       }
     },
     onLoad: function () {

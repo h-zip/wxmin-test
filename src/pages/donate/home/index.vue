@@ -2,9 +2,9 @@
   <div class="container">
     <select-btns :titles="titles" :selectedIndex="typeIndex" selectedColor="#00a392" unSelectedColor="#FFFFFF" bgColor="#7ecbc3"
                  @on-selected="typeSelected"></select-btns>
-    <page-cloth v-if="typeIndex === 0" />
-    <page-quick-cloth v-if="typeIndex === 1" />
-    <page-goods v-if="typeIndex === 2" />
+    <page-cloth v-if="typeIndex === 0"/>
+    <page-quick-cloth v-if="typeIndex === 1"/>
+    <page-goods v-if="typeIndex === 2"/>
     <page-quick-goods v-if="typeIndex === 3"/>
   </div>
 </template>
