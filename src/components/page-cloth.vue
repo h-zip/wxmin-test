@@ -3,6 +3,11 @@
     <select-down :opts="items" :filterIndex="filterIndex" :optIndexs="optIndexs" selectedColor="#00a392" unSelectedColor="#999999"
                  @on-filter="filterSelected" @on-opt="optSelected" @on-reset="optReset" @on-confirm="optConfirm" @on-multiple="onDrawer"></select-down>
     <item-drawer :show="tagShow" :items="items" @on-drawer="onDrawer" :opt-indexs="optIndexs" @on-selected="onDrawerSelected"></item-drawer>
+    <div class="cell-box">
+      <div class="cell" v-for="(cell, index) in cells" :key="index">
+        <donate-list-card :cell="cell" @on-detail="onDetail"></donate-list-card>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -10,10 +15,12 @@
   import _ from 'lodash'
   import selectDown from '@/components/select-down'
   import itemDrawer from '@/components/item-drawer'
+  import donateListCard from '@/components/donate-list-card'
   export default {
     components: {
       'select-down': selectDown,
-      'item-drawer': itemDrawer
+      'item-drawer': itemDrawer,
+      'donate-list-card': donateListCard
     },
     props: {
     },
@@ -141,7 +148,36 @@
             ]
           }
         ],
-        tagShow: false
+        tagShow: false,
+        cells: [
+          {
+            title: '为雨花斋的家人们送去关爱（老人衣物）',
+            size: '160-180cm',
+            location: '上海市',
+            date: '56',
+            donated: '120',
+            demand: '40',
+            process: '55'
+          },
+          {
+            title: '为雨花斋的家人们送去关爱（老人衣物）',
+            size: '160-180cm',
+            location: '上海市',
+            date: '56',
+            donated: '120',
+            demand: '40',
+            process: '75'
+          },
+          {
+            title: '为雨花斋的家人们送去关爱（老人衣物）',
+            size: '160-180cm',
+            location: '上海市',
+            date: '56',
+            donated: '120',
+            demand: '40',
+            process: '75'
+          }
+        ]
       }
     },
     watch: {},
@@ -181,6 +217,9 @@
         c[section] = index
         this.optIndexs = c
         console.log(this.optIndexs)
+      },
+      onDetail () {
+        wx.router.push(wx.router.routes.donate.detail)
       }
     },
     onLoad: function () {
@@ -200,6 +239,11 @@
   .container{
     background-color: @color-white-1;
     width: 100%;
+    .cell-box {
+      .cell {
+        padding-top: 30rpx;
+      }
+    }
   }
 </style>
 

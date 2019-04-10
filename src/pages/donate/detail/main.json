@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "需求详情",
+  "usingComponents": {
+    "van-row": "../../../../static/vant/dist/row/index",
+    "van-col": "../../../../static/vant/dist/col/index",
+    "van-button": "../../../../static/vant/dist/button/index",
+    "van-icon": "../../../../static/vant/dist/icon/index",
+    "van-input-number": "../../../../static/vant/dist/input-number/index",
+    "van-popup": "../../../../static/vant/dist/popup/index"
+  }
+}

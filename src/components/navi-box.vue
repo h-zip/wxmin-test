@@ -56,7 +56,7 @@
       /*40*4 + 2*6 /3*/
       font-size: @font-m;
       text-align: center;
-      /*border:2rpx solid #DFDFDF;*/
+      /*border:2rpx solid @color-gray-4;*/
       /*margin-left: 40rpx;*/
       margin-top: 40rpx;
       /*padding: 10rpx 0;*/

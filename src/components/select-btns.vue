@@ -41,6 +41,11 @@
 <style scoped lang="less">
   @import "../styles/index";
   .container{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 99;
+    height: 112rpx;
     padding: 20rpx;
     width: 100%;
     box-sizing: border-box;
@@ -58,7 +63,7 @@
         text-align: center;
         padding-top: 16rpx;
         padding-bottom: 16rpx;
-        /*border:2rpx solid #DFDFDF;*/
+        /*border:2rpx solid @color-gray-4;*/
       }
     }
   }

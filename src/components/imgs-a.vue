@@ -51,7 +51,7 @@
       /*flex: 0 0 calc(~"(100% - 172px) / 3");*/
       /*40*3 + 2*4 / 2*/
       /*40*4 + 2*6 /3*/
-      /*border:2rpx solid #DFDFDF;*/
+      /*border:2rpx solid @color-gray-4;*/
       /*margin-left: 40rpx;*/
       /*margin-top: 40rpx;*/
       /*padding: 10rpx 0;*/

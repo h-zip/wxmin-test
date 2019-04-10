@@ -106,7 +106,10 @@
 <style scoped lang="less">
   @import "../styles/index";
   .container{
-    position: relative;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 99;
+    top: 112rpx;
     width: 100%;
     box-sizing: border-box;
     font-size: 0;

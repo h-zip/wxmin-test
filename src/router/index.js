@@ -3,7 +3,8 @@ const routes = {
     home: '/pages/login/home/main'
   },
   donate: {
-    home: '/pages/donate/home/main'
+    home: '/pages/donate/home/main',
+    detail: '/pages/donate/detail/main'
   },
   index: {
     home: '/pages/index/home/main'
