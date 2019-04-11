@@ -32,6 +32,7 @@
     width: 100%;
     box-sizing: border-box;
     background-color: @color-white-0;
+    border-bottom: 2rpx solid @color-gray-4;
     .btn1 {
       box-sizing: border-box;
       border-right: 2rpx solid @color-gray-4;

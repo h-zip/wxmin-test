@@ -35,8 +35,9 @@
     -webkit-overflow-scrolling: touch;
     background-color: @color-white-0;
     .title {
-      font-size: @font-m;
+      font-size: @font-m + 2rpx;
       padding: 40rpx 0 0 20rpx;
+      font-weight: bold;
     }
     .content {
       width: 100%;

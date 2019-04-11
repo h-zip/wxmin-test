@@ -4,6 +4,8 @@
     "pages/login/home/main",
     "pages/donate/home/main",
     "pages/donate/detail/main",
+    "pages/donate/pack/main",
+    "pages/donate/delivery/main",
     "pages/requirement/home/main",
     "pages/requirement/detail/main",
     "pages/partner/home/main",

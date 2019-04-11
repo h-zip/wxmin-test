@@ -90,7 +90,7 @@
     .swiper {
     }
     .content {
-      padding: 20rpx;
+      padding: 30rpx;
       .detail {
         font-size: @font-m - 2rpx;
         color: @color-black-2;
@@ -99,7 +99,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10rpx;
+        padding: 10rpx 0;
         .title {
           font-size: @font-m;
         }

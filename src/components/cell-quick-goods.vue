@@ -19,37 +19,6 @@
       'row'
     ],
     computed: {
-      iconClass: function () {
-        let c = ''
-        if (this.cell.season === '0') {
-          c = 'iconfont icon-sun cell_icon color_sun'
-        } else if (this.cell.season === '1') {
-          c = 'iconfont icon-cloud cell_icon color_cloud'
-        } else {
-          c = 'iconfont icon-snow cell_icon color_snow'
-        }
-        return c
-      },
-      seasonName: function () {
-        let c = ''
-        if (this.cell.season === '0') {
-          c = '夏装'
-        } else if (this.cell.season === '1') {
-          c = '冬装'
-        } else {
-          c = '春秋装'
-        }
-        return c
-      },
-      sexName: function () {
-        let c = ''
-        if (this.cell.sex === '0') {
-          c = '男'
-        } else {
-          c = '女'
-        }
-        return c
-      }
     },
     methods: {
       onChange: function (e) {

@@ -4,7 +4,9 @@ const routes = {
   },
   donate: {
     home: '/pages/donate/home/main',
-    detail: '/pages/donate/detail/main'
+    detail: '/pages/donate/detail/main',
+    pack: '/pages/donate/pack/main',
+    delivery: '/pages/donate/delivery/main'
   },
   index: {
     home: '/pages/index/home/main'
