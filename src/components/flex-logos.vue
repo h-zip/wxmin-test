@@ -1,8 +1,8 @@
 <template>
   <div class="logos">
-    <img :src=imgLogoSrc1 class="logo"/>
-    <img :src=imgLogoSrc3 class="logo"/>
-    <img :src=imgLogoSrc2 class="logo"/>
+    <img :src=imgLogoSrc1 mode="widthFix" class="logo"/>
+    <img :src=imgLogoSrc3 mode="widthFix" class="logo"/>
+    <img :src=imgLogoSrc2 mode="widthFix" class="logo"/>
   </div>
 </template>
 
@@ -21,14 +21,14 @@
 
 <style scoped lang="less">
   .logos {
-    position: relative;
-    width: auto;
-    padding: 15px 0;
-    text-align: center;
+    position: fixed;
+    bottom: 80rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .logo {
-      display: inline-block;
       width: 80px;
-      height: auto;
     }
   }
 </style>

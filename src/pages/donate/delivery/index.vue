@@ -9,8 +9,8 @@
         <div class="btn1">{{ '我要寄件' }}</div>
       </div>
       <div class="insert">
-        <div class="btn2">{{ '我已寄出' }}</div>
-        <already-send-box :data="sendData"></already-send-box>
+        <div class="btn2" @click="onClickAlreadySend">{{ '我已寄出' }}</div>
+        <already-send-box v-if="alreadySend" :data="sendData" @on-count-change="onCountChange" @on-order-change="onOrderChange"></already-send-box>
       </div>
       <div class="insert">
         <div class="btn3">{{ '送货上门' }}</div>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  // import _ from 'lodash'
+  import _ from 'lodash'
   import donateRecieverCard from '@/components/donate-reciever-card'
   import alreadySendBox from '@/components/already-send-box'
   export default {
@@ -36,13 +36,42 @@
     computed: {},
     data: function () {
       return {
+        alreadySend: false,
         sendData: {
-          count: ''
+          count: '1',
+          list: [
+            ''
+          ]
         }
       }
     },
     watch: {},
     methods: {
+      onClickAlreadySend: function () {
+        this.alreadySend = !this.alreadySend
+      },
+      onCountChange: function (v) {
+        let s = _.cloneDeep(this.sendData)
+        s.count = v.mp.detail.value
+        let c = parseInt(s.count)
+        let arr = []
+        for (let i = 0; i < c; i++) {
+          if (s.list[i]) {
+            arr.push(s.list[i])
+          } else {
+            arr.push('')
+          }
+        }
+        s.list = arr
+        this.sendData = s
+      },
+      onOrderChange: function (v) {
+        let index = v.mp.currentTarget.dataset.eventid.split('_')[1]
+        let s = _.cloneDeep(this.sendData)
+        s.list[index] = v.mp.detail.value
+        this.sendData = s
+        console.log(this.sendData)
+      }
     },
     onLoad: function () {
       // console.log(wx)

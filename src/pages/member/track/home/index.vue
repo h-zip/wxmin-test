@@ -5,21 +5,29 @@
     <div class="box3">
       <div class="btn" @click="goSummaryPage">点击查看</div>
     </div>
+    <div class="logos">
+      <flex-logos></flex-logos>
+    </div>
   </div>
 </template>
 
 <script>
-  import headerBox from '@/components/header-box'
+  import flexLogos from '@/components/flex-logos'
   export default {
     name: 'index',
     components: {
-      'header-box': headerBox
+      'flex-logos': flexLogos
     },
     data: function () {
       return {
         img1: '/static/images/icon_index_1.png',
         img2: '/static/images/icon_index_2.png',
         img3: '/static/images/icon_index_3.png'
+      }
+    },
+    methods: {
+      goSummaryPage: function () {
+        wx.router.push(wx.router.routes.member.track.summary)
       }
     }
   }

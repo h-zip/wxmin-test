@@ -1,25 +1,52 @@
 <template>
   <div class="container">
-    <img :src="img1" mode="widthFix" class="img1" />
-    <img :src="img2" mode="widthFix" class="img2" />
-    <div class="box3">
-      <div class="btn" @click="goSummaryPage">点击查看</div>
+    <div class="box1">
+      <summary-txt :info="info" line-height="72rpx" />
+    </div>
+    <div class="box2">
+      <img :src=ewmImgSrc class="erweima"/>
+      <div class="right">
+        <div class="btn" @click="goMap">{{ '查看我的足迹' }}</div>
+        <!--<div class="bottom">-->
+        <!--数据统计时间-->
+        <!--<div class="time">{{ time }}</div>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="logos">
+      <flex-logos></flex-logos>
     </div>
   </div>
 </template>
 
 <script>
-  import headerBox from '@/components/header-box'
+  import summaryTxt from '@/components/summary-txt'
+  import flexLogos from '@/components/flex-logos'
   export default {
-    name: 'index',
+    name: 't_summary',
     components: {
-      'header-box': headerBox
+      'summary-txt': summaryTxt,
+      'flex-logos': flexLogos
     },
     data: function () {
       return {
-        img1: '/static/images/icon_index_1.png',
-        img2: '/static/images/icon_index_2.png',
-        img3: '/static/images/icon_index_3.png'
+        mapPage: '/member/tracks/map',
+        contentBgImgSrc: 'http://bbaltcdn.hanspro.cn/sys/icon_index_7.png',
+        ewmImgSrc: 'http://bbaltcdn.hanspro.cn/sys/erweima.png',
+        time: '2017/08/01-2018/07/31',
+        info: {
+          donateNumber: '0',
+          matchCount: '0',
+          areaCount: '0',
+          name: ''
+        }
+      }
+    },
+    mounted: function () {
+    },
+    methods: {
+      goMap: function () {
+        wx.router.push(wx.router.routes.member.track.map)
       }
     }
   }
@@ -27,34 +54,48 @@
 
 <style scoped lang="less">
   @import "../../../../styles/index";
-  .container{
+  .container {
+    padding-top: 40rpx;
+    /*padding-bottom: 54px;*/
     background-color: @color-white-1;
     min-height: 100vh;
-    .img1 {
-      padding: 80rpx 0;
-      display: block;
-      width: 50%;
-      margin: auto;
+    box-sizing: border-box;
+  }
+  .box1 {
+    background-image: url("http://bbaltcdn.hanspro.cn/sys/icon_index_7.png");
+    background-size: 100% 100%;
+    height: 600rpx;
+    padding-top: 60rpx;
+  }
+  .box2 {
+    height: 200rpx;
+    margin-top: 40rpx;
+    padding-bottom: 14rpx;
+    .erweima {
+      margin-left: 60rpx;
+      float: left;
+      width: 200rpx;
+      height: 200rpx;
     }
-    .img2 {
-      padding: 80rpx 0;
-      display: block;
-      width: 40%;
-      margin: auto;
-    }
-    .box3 {
-      padding: 25px 0;
+    .right {
+      margin-right: 60rpx;
+      float: right;
+      height: 200rpx;
+      width: 280rpx;
+      text-align: center;
       .btn {
-        position: relative;
         text-align: center;
-        line-height: 58px;
-        font-size: 20px;
-        color: white;
-        width: 150px;
-        height: 62px;
-        margin: 0 auto;
-        background-image: url("../../../../../static/images/icon_index_3.png");
-        background-size: 100% 100%;
+        color: @color-white-1;
+        background-color: @color-red-2;
+        font-size: @font-m;
+        border-radius: 6rpx;
+        padding: 16rpx 30rpx;
+      }
+      .bottom {
+        padding-top: 20rpx;
+        color: #bcbdbf;
+        line-height: 40rpx;
+        font-size: 24rpx;
       }
     }
   }
