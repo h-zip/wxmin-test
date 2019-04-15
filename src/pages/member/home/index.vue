@@ -1,29 +1,29 @@
 <template>
   <div class="container">
-    <header-box :header-src="headerSrc" :bg="bg" :name="name"></header-box>
-    <flex-row-a :items="items"></flex-row-a>
-    <van-cell-group>
-      <van-cell :title="cell.title" :is-link="!cell.notLink" v-for="(cell, index) in cells" :key="index" :url="cell.url" title-class="cell-title">
-        <van-icon slot="icon" size="32rpx" :color="cell.color" :custom-class="cell.icon"  />
-      </van-cell>
-    </van-cell-group>
+    <header-box :header-src="headerSrc" bg-color="#7ecbc3" :name="name" :phone="phone"></header-box>
+    <div class="content">
+      <btn-two-float :point="point" :level="level"></btn-two-float>
+    </div>
   </div>
 </template>
 
 <script>
   import headerBox from '@/components/header-box'
-  import flexRowA from '@/components/flex-row-a'
+  import btnTwoFloat from '@/components/btn-two-float'
   export default {
     name: 'index',
     components: {
       'header-box': headerBox,
-      'flex-row-a': flexRowA
+      'btn-two-float': btnTwoFloat
     },
     data: function () {
       return {
         headerSrc: '/static/images/default_avatar.jpg',
         bg: '-webkit-gradient(linear, left top, left bottom, color-stop(0, #adebcb), color-stop(1, #5fd9cb))',
-        name: '1233333',
+        name: '宝贝爱蓝天小助手',
+        phone: '1590112394',
+        point: '1456',
+        level: '二级志愿者',
         items: [
           {
             count: '0',
@@ -97,8 +97,10 @@
   .container{
     background-color: @color-white-1;
     min-height: 100vh;
-    /deep/ .cell-title{
-      padding-left: 20rpx;
+    .content {
+      position: relative;
+      top: -80rpx;
+      padding: 0 40rpx;
     }
   }
 </style>

@@ -1,9 +1,10 @@
 <template>
   <div class="container">
-    <div class="bg" :style="{backgroundImage: bg}">
+    <div class="bg" :style="{backgroundColor: bgColor}">
       <div class="content">
         <img class="header" :src="headerSrc" @click="onClick" />
         <div class="name">{{ name }}</div>
+        <div class="phone">{{ phone }}</div>
       </div>
     </div>
   </div>
@@ -15,7 +16,9 @@
     props: [
       'bg',
       'headerSrc',
-      'name'
+      'name',
+      'bgColor',
+      'phone'
     ],
     methods: {
       onClick: function () {
@@ -30,7 +33,7 @@
   .container{
     width: 100%;
     .bg{
-      padding: 40rpx 0;
+      padding: 40rpx 0 120rpx 0;
       .content{
         .header{
           width: 20vw;
@@ -41,6 +44,14 @@
         }
         .name{
           padding: 40rpx 0 0 0;
+          width: 80%;
+          margin: auto;
+          text-align: center;
+          font-size: @font-m;
+          color: @color-white-0;
+        }
+        .phone{
+          padding: 10rpx 0 0 0;
           width: 80%;
           margin: auto;
           text-align: center;

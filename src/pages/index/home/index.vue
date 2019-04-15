@@ -88,7 +88,7 @@ export default {
       ],
       cols: [
         {
-          title: '合作',
+          title: '一起捐',
           icon: '/static/images/col_co.png'
         },
         {
